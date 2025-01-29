@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NLED DMX ArtNet Recorder</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="main" style="margin: auto auto;">
+        <div id="main-controls" style="position: relative;">
+            <div id="main-servererror" class="serverError">
+                <div>NO SERVER CONNECTION</div>
+            </div>
+            <div>ArtNet:</div>
+            <div class="mainSection">
+                <div>Hosts:<input id="main-controls-hosts" type="text" value="127.0.0.1"></div>
+                <div>Subnet: <input id="main-controls-subnet" type="number" min="0" max="255" value="0"></div>
+                <div>Net: <input id="main-controls-net" type="number" min="0" max="255" value="0"></div>
+                <div>Universe: <input id="main-controls-universe" type="number" min="0" max="255" value="0"></div>
+            </div>
+            <div>Record Controls:</div>
+            <div class="mainSection">
+                <span>Format: <select id="main-format">
+                        <option value="bin">NLED .bin</option>
+                        <option value="raw">.raw</option>
+                    </select></span>
+                <button id="main-controls-start">Record Start</button>
+                <button id="main-controls-stop">Record Stop</button>
+                <span>Frame Length: <input id="main-controls-length" type="number" min="1" max="512" value="512"><button id="main-controls-lengthupdate">Update</button></span>
+                <button id="main-controls-playback">Play Back Start</button>
+            </div>
+        </div>
+        <div>Status:</div>
+        <div id="main-status" class="mainSection" style="flex-direction: column;">
+            <div style="display:flex">
+                <div style="width:20%;">ArtNet: <span id="status-artnet"> false</span></div>
+                <div style="width:30%;">ArtNet Packet Length: <span id="status-packetsz"> - </span></div>
+                <div style="width:20%">Frame#: <span id="status-framenumber"></span></div>
+                <div style="width: 20%">File Size: <span id="status-filesize"></span></div>
+            </div>
+            <div style="display:flex">
+                <div style="width:20%;">Recording: <span id="status-recording">False</span></div>
+                <div style="width: 80%;">File Path: <span id="status-filepath" style="text-overflow: ellipsis;"></span></div>
+            </div>
+        </div>
+        <div>Edit:</div>
+        <div id="main-edit" class="mainSection" style="display:flex;flex-direction: column;">
+            <div style="display:flex">
+                <div style="width:20%">Frame Select: <span id="main-edit-frameselnum">0</span></div>
+                <div style="width:80%"><input id="main-edit-framesel" type="range" min="0" max="200" value="0" style="width:100%;"></div>
+            </div>
+            <div>
+                <button id="main-deletebefore">Delete All Frames Before</button>
+                <button id="main-deleteafter">Delete All Frames After</button>
+
+            </div>
+        </div>
+        <div id="main-preview">
+            <!-- DYNAMIC -->
+        </div>
+        <div style="text-align:center">Written by Jeff Nygaard of NLED - MIT License - <a href="https://www.NLEDshop.com">https://www.NLEDshop.com</a><br><a href="https://github.com/NLED/nled-artnet-recorder">https://github.com/NLED/nled-artnet-recorder</a></div>
+    </div>
+
+    <script src="index.js" async defer></script>
+</body>
+</html>
