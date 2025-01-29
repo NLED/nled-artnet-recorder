@@ -30,3 +30,4 @@ TODO:
     Add more file formats
     Improve user interface
     
+![alt text](https://github.com/NLED/nled-artnet-recorder/blob/main/nled-artnet-recorder-ss-1.png?raw=true)
